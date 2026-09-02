@@ -499,16 +499,7 @@ main {
 }
 
 .portrait-backdrop {
-  position: absolute;
-  z-index: 1;
-  right: clamp(-160px, -7vw, -75px);
-  bottom: -17%;
-  width: min(47vw, 720px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
-  background: transparent;
-  box-shadow: none;
+  display: none;
 }
 
 .hero-portrait {
@@ -528,7 +519,7 @@ main {
   position: absolute;
   z-index: 3;
   top: 50%;
-  right: clamp(-160px, -7vw, -76px);
+  right: clamp(24px, 5vw, 88px);
   width: var(--wheel-size);
   height: var(--wheel-size);
   animation: professionRotate 10s ease-out infinite;
@@ -552,27 +543,11 @@ main {
 
 .role-wheel-line::before,
 .role-wheel-line::after {
-  content: '';
-  position: absolute;
-  inset: 50% auto auto 50%;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translate(-50%, -50%);
-}
-
-.role-wheel-line::after {
-  width: 25%;
-  height: 1px;
-  border-radius: 0;
-  transform: translate(0, -50%);
+  display: none;
 }
 
 .role {
   position: absolute;
-  top: 50%;
-  left: -4px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -582,14 +557,32 @@ main {
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   color: var(--text);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-  transform-origin: calc(var(--wheel-size) / 2 + 4px) 50%;
   backdrop-filter: blur(12px);
 }
 
-.role--1 { transform: translateY(-50%) rotate(0deg); }
-.role--2 { transform: translateY(-50%) rotate(90deg); }
-.role--3 { transform: translateY(-50%) rotate(180deg); }
-.role--4 { transform: translateY(-50%) rotate(270deg); }
+.role--1 {
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.role--2 {
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.role--3 {
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.role--4 {
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(270deg);
+}
 
 .role-icon {
   display: grid;
@@ -1671,7 +1664,7 @@ footer p {
 
   .role-wheel {
     --wheel-size: 55vw;
-    right: -19vw;
+    right: clamp(18px, 3vw, 44px);
   }
 
   .portrait-backdrop {
@@ -1780,7 +1773,7 @@ footer p {
 
   .role-wheel {
     --wheel-size: min(76vw, 650px);
-    right: -28vw;
+    right: -14vw;
   }
 
   .hero-object--one {
@@ -1942,7 +1935,7 @@ footer p {
 
   .role-wheel {
     --wheel-size: min(100vw, 520px);
-    right: -46vw;
+    right: -38vw;
     top: 47%;
   }
 
