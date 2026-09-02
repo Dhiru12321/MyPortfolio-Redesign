@@ -296,12 +296,14 @@ main {
   border-bottom: 1px solid var(--line);
 }
 
-.hero::after {
+.hero-visual::before {
   content: '';
   position: absolute;
-  z-index: 1;
-  inset: 0 0 0 auto;
-  width: 53%;
+  z-index: 4;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 38%),
     var(--hero-geometry);
@@ -1684,10 +1686,10 @@ footer p {
 }
 
 @media (max-width: 920px) {
-  .hero::after {
-    inset: auto 0 0 auto;
-    width: 90%;
-    height: 58%;
+  .hero-visual::before {
+    inset: 0 0 0 -12vw;
+    width: calc(100% + 12vw);
+    height: 100%;
     clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%, 56% 50%);
   }
 
@@ -1844,9 +1846,10 @@ footer p {
 }
 
 @media (max-width: 640px) {
-  .hero::after {
+  .hero-visual::before {
+    inset: 0;
     width: 100%;
-    height: 44%;
+    height: 100%;
     clip-path: polygon(66% 0, 100% 0, 100% 100%, 0 100%, 62% 45%);
   }
 
