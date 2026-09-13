@@ -691,11 +691,11 @@ main {
 .skills-marquee {
   position: relative;
   z-index: 12;
+  width: 100%;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background: var(--accent);
   color: var(--accent-ink);
-  transform: rotate(-1deg) scale(1.015);
 }
 
 .skills-track {
