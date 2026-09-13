@@ -12,7 +12,7 @@
   --line-strong: rgba(244, 243, 237, 0.28);
   --accent: #d9ff43;
   --accent-ink: #111604;
-  --hero-geometry: #123a3c;
+  --hero-geometry: #109b9f;
   --blue: #7ba4ff;
   --orange: #ff765e;
   --shadow: 0 24px 90px rgba(0, 0, 0, 0.36);
@@ -36,7 +36,7 @@
   --line-strong: rgba(19, 22, 29, 0.28);
   --accent: #a6d900;
   --accent-ink: #111604;
-  --hero-geometry: #159ca1;
+  --hero-geometry: #109b9f;
   --blue: #416bd0;
   --orange: #d9533b;
   --shadow: 0 24px 70px rgba(47, 50, 56, 0.16);
@@ -300,14 +300,12 @@ main {
   content: '';
   position: absolute;
   z-index: 4;
-  inset: 0;
-  width: 100%;
+  inset: 0 0 0 auto;
+  width: 54vw;
   height: 100%;
   pointer-events: none;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 38%),
-    var(--hero-geometry);
-  clip-path: polygon(34% 0, 100% 0, 100% 100%, 7% 100%, 54% 51%);
+  background: var(--hero-geometry);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 50% 51%);
 }
 
 .hero-copy {
@@ -1686,13 +1684,6 @@ footer p {
 }
 
 @media (max-width: 920px) {
-  .hero-visual::before {
-    inset: 0 0 0 -12vw;
-    width: calc(100% + 12vw);
-    height: 100%;
-    clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%, 56% 50%);
-  }
-
   .site-header {
     grid-template-columns: 1fr auto;
   }
@@ -1759,12 +1750,11 @@ footer p {
 
   .hero-visual {
     width: 78vw;
-    height: 58%;
   }
 
   .hero-portrait {
     width: min(72vw, 590px);
-    max-height: 100%;
+    max-height: 58%;
   }
 
   .portrait-backdrop {
@@ -1776,6 +1766,11 @@ footer p {
   .role-wheel {
     --wheel-size: min(76vw, 650px);
     right: -14vw;
+    top: 71%;
+  }
+
+  .hero-coordinate {
+    top: calc(42% + 134px);
   }
 
   .hero-object--one {
@@ -1846,13 +1841,6 @@ footer p {
 }
 
 @media (max-width: 640px) {
-  .hero-visual::before {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(66% 0, 100% 0, 100% 100%, 0 100%, 62% 45%);
-  }
-
   .site-header,
   .site-header--scrolled {
     height: 68px;
@@ -1922,12 +1910,12 @@ footer p {
 
   .hero-visual {
     width: 100vw;
-    height: 44%;
   }
 
   .hero-portrait {
     right: -2vw;
     width: min(85vw, 470px);
+    max-height: 44%;
   }
 
   .portrait-backdrop {
@@ -1939,7 +1927,7 @@ footer p {
   .role-wheel {
     --wheel-size: min(100vw, 520px);
     right: -38vw;
-    top: 47%;
+    top: 76.68%;
   }
 
   .role {
