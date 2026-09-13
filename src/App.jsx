@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import StarNetwork from './StarNetwork.jsx'
+import EnquiryScheduler from './EnquiryScheduler.jsx'
 import {
   AnimatePresence,
   motion,
@@ -18,7 +19,6 @@ import {
   ArrowUpRight,
   Asterisk,
   Camera,
-  Check,
   Code2,
   BriefcaseBusiness,
   GitFork,
@@ -264,7 +264,7 @@ function App() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [testimonial, setTestimonial] = useState(0)
-  const [formSent, setFormSent] = useState(false)
+  const [enquiryDetails, setEnquiryDetails] = useState(null)
   const reduceMotion = useReducedMotion()
 
   useEffect(() => {
@@ -375,14 +375,19 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setFormSent(true)
-    event.currentTarget.reset()
-    window.setTimeout(() => setFormSent(false), 4200)
+    const form = event.currentTarget
+    for (const name of ['name', 'message']) {
+      const field = form.elements.namedItem(name)
+      field.setCustomValidity(field.value.trim() ? '' : 'Please enter a little detail here.')
+      if (!field.checkValidity()) { field.reportValidity(); return }
+    }
+    const values = new FormData(form)
+    setEnquiryDetails(Object.fromEntries(['name', 'email', 'projectType', 'message'].map((key) => [key, String(values.get(key) || '').trim()])))
   }
 
   return (
     <div className="app-shell" ref={appRef}>
-      <StarNetwork theme={theme} reduceMotion={reduceMotion} />
+      <StarNetwork theme={theme} reduceMotion={reduceMotion} paused={Boolean(enquiryDetails)} />
       <div className="pointer-glow" aria-hidden="true" />
       <div className="noise" aria-hidden="true" />
 
@@ -725,7 +730,7 @@ function App() {
           <form className="contact-form reveal-item" onSubmit={handleSubmit}>
             <label>
               <span>Your name</span>
-              <input name="name" type="text" placeholder="What should I call you?" required />
+              <input name="name" type="text" placeholder="What should I call you?" required onInput={(event) => event.currentTarget.setCustomValidity('')} />
             </label>
             <label>
               <span>Email address</span>
@@ -743,19 +748,10 @@ function App() {
             </label>
             <label className="field-wide">
               <span>Tell me about the idea</span>
-              <textarea name="message" rows="4" placeholder="A few details, goals, and a rough timeline…" required />
+              <textarea name="message" rows="4" placeholder="A few details, goals, and a rough timeline…" required onInput={(event) => event.currentTarget.setCustomValidity('')} />
             </label>
             <button className="submit-button field-wide" type="submit">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={formSent ? 'sent' : 'send'}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                >
-                  {formSent ? <><Check /> Message noted</> : <>Send enquiry <Send /></>}
-                </motion.span>
-              </AnimatePresence>
+              <span>Send enquiry <Send /></span>
             </button>
           </form>
           <div className="contact-shape parallax-object" aria-hidden="true"><Orbit /></div>
@@ -787,6 +783,7 @@ function App() {
           </motion.button>
         </p>
       </footer>
+      {enquiryDetails && <EnquiryScheduler details={enquiryDetails} theme={theme} reduceMotion={reduceMotion} onClose={() => setEnquiryDetails(null)} />}
     </div>
   )
 }

@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { advanceStars, createStars } from './star-network.js'
 
-export default function StarNetwork({ theme, reduceMotion }) {
+export default function StarNetwork({ theme, reduceMotion, paused = false, className = 'star-network' }) {
   const canvasRef = useRef(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
     const context = canvas?.getContext('2d')
-    if (!context) return undefined
+    if (!context || paused) return undefined
 
     const pointer = { x: 0, y: 0, active: false }
     const color = theme === 'light' ? '#416bd0' : '#7ba4ff'
@@ -134,7 +134,7 @@ export default function StarNetwork({ theme, reduceMotion }) {
       window.removeEventListener('blur', clearPointer)
       document.removeEventListener('visibilitychange', visibility)
     }
-  }, [theme, reduceMotion])
+  }, [theme, reduceMotion, paused])
 
-  return <canvas className="star-network" ref={canvasRef} aria-hidden="true" />
+  return <canvas className={className} ref={canvasRef} aria-hidden="true" />
 }

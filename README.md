@@ -17,6 +17,19 @@ npm run build
 
 Motion is powered by Motion for React and GSAP ScrollTrigger.
 
+## Meeting enquiry flow
+
+The contact form's **Send enquiry** button opens a responsive date/time request
+dialog with the same interactive star network and grid as the portfolio. It keeps
+the form details intact, disables past dates/times, and supports time-zone changes.
+The proposed half-hour slots are not connected to live calendar availability.
+
+Visitors can review, copy, or download their request and message the owner on
+LinkedIn. No enquiry is automatically transmitted or represented as a confirmed
+booking. To offer an email-draft action, set the public `VITE_CONTACT_EMAIL` address
+in a local `.env` file using `.env.example`, then restart Vite/rebuild. A real
+confirmed-booking flow would require the owner's booking-service URL or a backend.
+
 ## About portrait
 
 `public/assets/people/profile-about-cutout-v2.png` is extracted from the supplied
