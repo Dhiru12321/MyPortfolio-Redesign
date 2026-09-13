@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import StarNetwork from './StarNetwork.jsx'
 import EnquiryScheduler from './EnquiryScheduler.jsx'
+import { LINKEDIN_URL } from './enquiry-calendar.js'
 import {
   AnimatePresence,
   motion,
@@ -504,7 +505,7 @@ function App() {
                 <GitFork size={19} />
               </a>
               <a
-                href="https://www.linkedin.com/in/dhirendra-kumar-28488b24b/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -595,7 +596,7 @@ function App() {
               </div>
               <MagneticLink
                 className="outline-button reveal-item"
-                href="https://www.linkedin.com/in/dhirendra-kumar-28488b24b/"
+                href={LINKEDIN_URL}
                 target="_blank"
               >
                 More about my journey <ArrowUpRight size={18} />
@@ -719,7 +720,7 @@ function App() {
             <SectionHeading eyebrow="Start a conversation" title="Have an idea? Let’s make it feel inevitable." />
             <a
               className="contact-email reveal-item"
-              href="https://www.linkedin.com/in/dhirendra-kumar-28488b24b/"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noreferrer"
             >
@@ -765,7 +766,7 @@ function App() {
         </div>
         <div className="footer-links">
           <a href="https://github.com/Dhiru12321" target="_blank" rel="noreferrer">GitHub <ArrowUpRight /></a>
-          <a href="https://www.linkedin.com/in/dhirendra-kumar-28488b24b/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a>
           <a href="#contact">Enquire <ArrowUpRight /></a>
         </div>
         <p className="footer-copy">

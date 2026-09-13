@@ -1,5 +1,5 @@
 export const HOST_TIME_ZONE = 'Asia/Kolkata'
-export const LINKEDIN_URL = 'https://www.linkedin.com/in/dhirendra-kumar-28488b24b/'
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/dhirendra-kumar-039b96219/'
 
 export function dateKeyInZone(date = new Date(), timeZone = HOST_TIME_ZONE) {
   const parts = new Intl.DateTimeFormat('en-GB', {

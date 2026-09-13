@@ -1,10 +1,14 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {
-  HOST_TIME_ZONE, calendarMonth, contactEmailHref, createEnquiryText,
+  HOST_TIME_ZONE, LINKEDIN_URL, calendarMonth, contactEmailHref, createEnquiryText,
   dateKeyInZone, formatTime, monthFromKey, proposalSlots, shiftDateKey,
   shiftMonth, zonedTimeToDate,
 } from '../src/enquiry-calendar.js'
+
+test('LinkedIn actions share the requested contact profile', () => {
+  assert.equal(LINKEDIN_URL, 'https://www.linkedin.com/in/dhirendra-kumar-039b96219/')
+})
 
 test('today is computed in the selected zone, not the system zone', () => {
   const instant = new Date('2026-09-12T19:00:00Z')
