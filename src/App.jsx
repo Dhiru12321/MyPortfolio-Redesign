@@ -546,7 +546,9 @@ function App() {
           <div className="about-layout">
             <div className="about-visual reveal-item">
               <div className="about-frame">
-                <img src="/assets/people/profile-about.png" alt="Dhirendra Kumar standing outdoors" />
+                <div className="about-portrait">
+                  <img src="/assets/people/profile-about-cutout-v2.png" alt="Dhirendra Kumar looking to the right" />
+                </div>
                 <span className="corner corner--tl" />
                 <span className="corner corner--tr" />
                 <span className="corner corner--bl" />
