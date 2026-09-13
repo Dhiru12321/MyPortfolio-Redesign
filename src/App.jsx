@@ -467,7 +467,7 @@ function App() {
                 href="/resume/dhirendra-kumar-resume.pdf"
                 download
               >
-                Download résumé <ArrowUpRight size={17} />
+                Download Resume <ArrowUpRight size={17} />
               </MagneticLink>
             </div>
             <div className="hero-socials" aria-label="Social links">
