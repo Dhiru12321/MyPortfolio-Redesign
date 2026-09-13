@@ -139,7 +139,7 @@ export default function EnquiryScheduler({ details, theme, reduceMotion, onClose
 
         <header className="scheduler-heading">
           <p className="scheduler-eyebrow"><span /> LET’S CONNECT / 01</p>
-          <h1 id="enquiry-title">Great things start<br />with a <span>conversation.</span></h1>
+          <h1 id="enquiry-title">Great things start <br />with a <span>conversation.</span></h1>
           <p id="enquiry-description">A little time. A big idea. Find a moment to talk about yours.</p>
         </header>
 
@@ -169,7 +169,7 @@ export default function EnquiryScheduler({ details, theme, reduceMotion, onClose
               <span className={step === 'review' ? 'current' : ''}><b>02</b> Your enquiry</span>
             </div>
 
-            <motion.div key={step} initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+            <motion.div className="scheduler-stage" key={step} initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
               {step === 'select' ? (
                 <>
                   <h2 className="scheduler-panel-title" ref={panelTitleRef} tabIndex={-1}>Choose a date & time<span>.</span></h2>

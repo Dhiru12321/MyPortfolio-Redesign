@@ -180,6 +180,91 @@
   .scheduler-bottom-note { font-size: 7px; letter-spacing: .1em; }
 }
 
+/* Keep the complete request flow in one viewport on desktop and landscape tablets.
+   Only long notes and time lists scroll inside their own panels. */
+@media (min-width: 760px) and (min-height: 600px) {
+  .enquiry-dialog[open] { display: grid; place-items: center; overflow: hidden; }
+  .scheduler-shell { display: flex; flex-direction: column; width: min(1080px, calc(100% - 48px)); height: min(100dvh, 820px); padding-bottom: 10px; }
+  .scheduler-topbar { flex-shrink: 0; min-height: 52px; }
+  .scheduler-close { width: 34px; height: 34px; }
+  .scheduler-heading { flex-shrink: 0; margin: 12px 0 16px; }
+  .scheduler-eyebrow { margin: 0; font-size: 8px; }
+  .scheduler-heading h1 { margin: 7px 0; font-size: clamp(28px, 2.7vw, 36px); line-height: 1.08; }
+  .scheduler-heading h1 br { display: none; }
+  .scheduler-heading > p:last-child { margin-top: 6px; font-size: 11px; line-height: 1.6; }
+  .scheduler-card { flex: 1; min-height: 0; grid-template-columns: minmax(200px, .72fr) minmax(0, 2fr); border-radius: 20px; }
+  .scheduler-overview { min-height: 0; padding: 20px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+  .scheduler-overview > * { flex-shrink: 0; }
+  .scheduler-avatar { width: 64px; height: 64px; }
+  .scheduler-host { margin: 12px 0 8px; font-size: 11px; }
+  .scheduler-overview h2 { font-size: 26px; }
+  .scheduler-about { margin: 12px 0 16px; font-size: 11px; line-height: 1.6; }
+  .scheduler-facts { gap: 10px; }
+  .scheduler-facts li { gap: 9px; font-size: 10px; line-height: 1.6; }
+  .scheduler-facts svg { width: 14px; height: 14px; }
+  .scheduler-project-note { margin: 16px 0 14px; padding-top: 14px; }
+  .scheduler-project-note strong { margin-top: 6px; font-size: 12px; }
+  .scheduler-project-note p { margin-top: 6px; font-size: 10px; line-height: 1.5; }
+  .scheduler-request-note { font-size: 8px; }
+  .scheduler-main { display: flex; flex-direction: column; min-height: 0; padding: 16px 20px; }
+  .scheduler-stepbar { flex-shrink: 0; margin-bottom: 12px; }
+  .scheduler-stage { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+  .scheduler-panel-title { flex-shrink: 0; font-size: 24px; line-height: 1.15; }
+  .scheduler-panel-subtitle { flex-shrink: 0; margin: 6px 0 16px; font-size: 10px; line-height: 1.6; }
+  .scheduler-selection { flex: 1; min-height: 0; grid-template-columns: minmax(220px, 280px) minmax(150px, 1fr); gap: 20px; }
+  .scheduler-calendar { display: flex; flex-direction: column; min-height: 0; }
+  .scheduler-month { flex-shrink: 0; min-height: 28px; margin-bottom: 10px; }
+  .scheduler-month h3 { font-size: 12px; }
+  .scheduler-weekdays { flex-shrink: 0; margin-bottom: 8px; font-size: 9px; }
+  .scheduler-days { flex: 1; min-height: 0; grid-auto-rows: minmax(0, 1fr); gap: 4px; }
+  .scheduler-days button, .scheduler-days > span { width: clamp(24px, calc((min(100dvh, 820px) - 435px) / 6), 34px); height: clamp(24px, calc((min(100dvh, 820px) - 435px) / 6), 34px); aspect-ratio: auto; align-self: center; justify-self: center; }
+  .scheduler-days button { font-size: 11px; }
+  .scheduler-zone { flex-shrink: 0; margin-top: 12px; }
+  .scheduler-zone select { min-height: 32px; margin-top: 6px; font-size: 10px; }
+  .scheduler-times { display: flex; flex-direction: column; min-height: 0; padding: 0 0 0 18px; border-top: 0; border-left: 1px solid var(--line); }
+  .scheduler-times > h3 { flex-shrink: 0; margin: 4px 0 6px; font-size: 11px; }
+  .scheduler-times > p { flex-shrink: 0; margin-bottom: 10px; }
+  .scheduler-time-list { flex: 1; min-height: 0; max-height: none; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(32px, 1fr); gap: 4px; padding-bottom: 0; }
+  .scheduler-time-list button { min-height: 32px; font-size: 10px; }
+  .scheduler-empty-times { flex: 1; min-height: 0; flex-direction: column; justify-content: center; text-align: center; gap: 0; }
+  .scheduler-orbit { width: 54px; height: 54px; margin: 0; }
+  .scheduler-orbit::before { inset: -8px; }
+  .scheduler-empty-times strong { margin-top: 20px; font-size: 13px; }
+  .scheduler-empty-times p { max-width: 165px; font-size: 10px; }
+  .scheduler-selection-footer { flex-shrink: 0; flex-direction: row; align-items: center; margin-top: 12px; padding-top: 12px; gap: 14px; }
+  .scheduler-selection-footer > p { max-width: 220px; font-size: 8px; }
+  .scheduler-primary { min-height: 40px; padding: 10px 16px; font-size: 10px; }
+  .scheduler-feedback { flex-shrink: 0; margin-top: 8px; min-height: 0; font-size: 9px; }
+  .scheduler-feedback:empty { margin: 0; }
+  .scheduler-review { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+  .scheduler-ready { flex-shrink: 0; margin-bottom: 10px; }
+  .scheduler-summary { flex-shrink: 0; padding: 14px; }
+  .scheduler-details { flex: 1; min-height: 0; overflow-y: auto; align-content: start; gap: 12px; margin: 18px 0; padding-right: 5px; scrollbar-width: thin; }
+  .scheduler-details dd { font-size: 11px; }
+  .scheduler-details .scheduler-message { max-height: none; overflow: visible; }
+  .scheduler-review-actions { flex-shrink: 0; gap: 10px; }
+  .scheduler-secondary { padding: 11px 13px; font-size: 9px; }
+  .scheduler-download { font-size: 9px; }
+  .scheduler-delivery-note { flex-shrink: 0; margin-top: 12px; font-size: 9px; line-height: 1.6; }
+  .scheduler-copy-fallback { min-height: 0; overflow-y: auto; }
+  .scheduler-bottom-note { flex-shrink: 0; margin-top: 10px; font-size: 7px; line-height: 1.4; }
+}
+
+@media (min-width: 760px) and (min-height: 600px) and (max-height: 699px) {
+  .scheduler-heading { margin: 8px 0 12px; }
+  .scheduler-heading h1 { font-size: 28px; }
+  .scheduler-heading > p:last-child { display: none; }
+  .scheduler-panel-subtitle { margin-bottom: 10px; }
+  .scheduler-stage > .scheduler-panel-subtitle { display: none; }
+  .scheduler-main { padding: 14px 18px; }
+  .scheduler-avatar { width: 56px; height: 56px; }
+  .scheduler-host { margin-top: 10px; }
+  .scheduler-overview h2 { font-size: 24px; }
+  .scheduler-overview { padding: 16px; }
+  .scheduler-about { margin: 10px 0 12px; font-size: 10px; }
+  .scheduler-project-note { margin: 12px 0; padding-top: 12px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .enquiry-dialog *, .enquiry-dialog *::before { animation: none !important; transition: none !important; }
 }

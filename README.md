@@ -24,6 +24,10 @@ dialog with the same interactive star network and grid as the portfolio. It keep
 the form details intact, disables past dates/times, and supports time-zone changes.
 The proposed half-hour slots are not connected to live calendar availability.
 
+At 760px wide and 600px high or larger, the enquiry uses a compact single-viewport
+layout. Long notes and time lists can scroll inside their panels; narrower phones
+keep a readable vertical layout with full-size touch controls.
+
 Visitors can review, copy, or download their request and message the owner on
 LinkedIn. No enquiry is automatically transmitted or represented as a confirmed
 booking. To offer an email-draft action, set the public `VITE_CONTACT_EMAIL` address
