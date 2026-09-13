@@ -1296,6 +1296,30 @@ main {
   line-height: 1.7;
 }
 
+.project-grid .project-card.project-card--live {
+  display: block;
+  grid-column: 1 / -1;
+}
+
+.project-grid .project-card.project-card--live .project-image-wrap {
+  aspect-ratio: 3020 / 1716;
+}
+
+.project-card--live .project-image-wrap img {
+  object-position: top;
+}
+
+.project-card--live:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 8px;
+  border-radius: var(--radius);
+}
+
+.project-card--live:focus-visible .project-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .testimonial-section {
   overflow: hidden;
   border-bottom: 1px solid var(--line);

@@ -126,6 +126,16 @@ const projects = [
     accent: '#ffb657',
     description: 'An ad-free music player concept with a focused interface and frictionless listening flow.',
   },
+  {
+    index: '07',
+    title: 'Newsfinder',
+    category: 'News & weather interface',
+    year: 'Live',
+    image: '/assets/projects/newsfinder-preview.png',
+    href: 'https://dhiru12321.github.io/newsfinder/',
+    accent: '#79e9f5',
+    description: 'An independent news interface covering India, world stories, technology, finance, and local weather.',
+  },
 ]
 
 const testimonials = [
@@ -198,7 +208,8 @@ function MagneticLink({ href, children, className = '', download, target, onClic
   )
 }
 
-function TiltCard({ children, className = '' }) {
+function TiltCard({ children, className = '', href, ariaLabel }) {
+  const Card = href ? motion.a : motion.article
   const pointerX = useMotionValue(0)
   const pointerY = useMotionValue(0)
   const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [6, -6]), {
@@ -217,8 +228,12 @@ function TiltCard({ children, className = '' }) {
   }
 
   return (
-    <motion.article
+    <Card
       className={className}
+      href={href}
+      target={href ? '_blank' : undefined}
+      rel={href ? 'noopener noreferrer' : undefined}
+      aria-label={ariaLabel}
       onMouseMove={handleMove}
       onMouseLeave={() => {
         pointerX.set(0)
@@ -227,7 +242,7 @@ function TiltCard({ children, className = '' }) {
       style={{ rotateX, rotateY, transformPerspective: 900 }}
     >
       {children}
-    </motion.article>
+    </Card>
   )
 }
 
@@ -616,14 +631,16 @@ function App() {
           <div className="section-index reveal-item">/ 03</div>
           <div className="work-heading-row">
             <SectionHeading eyebrow="Selected experiments" title="Projects built to learn, solve, and express." />
-            <span className="work-count reveal-item">06 / SELECTED</span>
+            <span className="work-count reveal-item">{String(projects.length).padStart(2, '0')} / SELECTED</span>
           </div>
 
           <div className="project-grid">
             {projects.map((project, index) => (
               <TiltCard
-                className={`project-card project-card--${(index % 3) + 1} reveal-item`}
+                className={`project-card project-card--${(index % 3) + 1}${project.href ? ' project-card--live' : ''} reveal-item`}
                 key={project.title}
+                href={project.href}
+                ariaLabel={project.href ? `Visit ${project.title} website (opens in a new tab)` : undefined}
               >
                 <div className="project-image-wrap">
                   <img src={project.image} alt={`${project.title} interface preview`} loading="lazy" />
