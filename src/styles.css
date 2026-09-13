@@ -802,7 +802,7 @@ main {
 .about-layout {
   display: grid;
   grid-template-columns: minmax(320px, 0.82fr) minmax(480px, 1.18fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(60px, 8vw, 150px);
   max-width: var(--container);
   margin: 0 auto;
@@ -810,13 +810,14 @@ main {
 
 .about-visual {
   position: relative;
-  padding: 26px;
+  margin-right: -32px;
+  padding: 0;
 }
 
 .about-frame {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 0.82;
+  aspect-ratio: 0.68;
   border-radius: 48% 48% 18px 18px;
   background: var(--panel);
   box-shadow: var(--shadow);
@@ -831,21 +832,22 @@ main {
 }
 
 .about-portrait {
-  --triangle-top: 41%;
+  --triangle-top: 30%;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 62%;
-  aspect-ratio: 0.68;
+  width: 92%;
+  height: 90%;
   transform: translate(-50%, -50%);
-  clip-path: polygon(0 0, 100% 0, 100% var(--triangle-top), 50% 100%, 0 var(--triangle-top));
+  /* A broad wedge leaves room for the entire cutout, including hands and trousers. */
+  clip-path: polygon(-65% 0, 165% 0, 165% var(--triangle-top), 50% 100%, -65% var(--triangle-top));
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .about-portrait::before {
   content: '';
   position: absolute;
-  inset: var(--triangle-top) 0 0;
+  inset: var(--triangle-top) -65% 0;
   background: #4fc7d7;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
@@ -854,16 +856,17 @@ main {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 130%;
-  max-width: none;
-  height: auto;
+  width: auto;
+  max-width: 100%;
+  height: 84%;
+  object-fit: contain;
   transform: translateX(-50%);
   filter: saturate(0.84) contrast(1.04);
   transition: filter 0.4s ease;
 }
 
 .about-frame:hover .about-portrait {
-  transform: translate(-50%, -50%) scale(1.045);
+  transform: translate(-50%, -50%) scale(1.025);
 }
 
 .about-frame:hover .about-portrait img {
@@ -887,7 +890,7 @@ main {
 .about-tag {
   position: absolute;
   right: -24px;
-  bottom: 17%;
+  bottom: 4%;
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -2022,7 +2025,7 @@ footer p {
 
   .about-visual {
     width: 100%;
-    padding: 0 13px 0 0;
+    padding: 0;
   }
 
   .about-tag {
