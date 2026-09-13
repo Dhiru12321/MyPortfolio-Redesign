@@ -493,7 +493,7 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Dhirendra Kumar portrait with rotating specialties">
+          <div className="hero-visual">
             <div className="role-wheel" aria-hidden="true">
               <div className="role-wheel-line" />
               {roles.map(({ label, icon: Icon }, index) => (
@@ -509,10 +509,6 @@ function App() {
               src="/assets/people/profile-primary.png"
               alt="Dhirendra Kumar"
             />
-            <div className="hero-stamp" aria-hidden="true">
-              <span>CREATIVE • DEVELOPER • DESIGNER • </span>
-              <Asterisk />
-            </div>
             <div className="hero-coordinate" aria-hidden="true">30.7333° N / 76.7794° E</div>
           </div>
 
