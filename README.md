@@ -1,6 +1,6 @@
 # Dhirendra Kumar — Portfolio Redesign
 
-A separate React/Vite redesign of the original `MyPortfolio` site. The source repository is used only as visual and content reference; this repository has its own Git history and no remote configured.
+A separate React/Vite redesign of the original `MyPortfolio` site. The original repository is used only as visual and content reference and remains unchanged; this redesign has its own Git history.
 
 ## Local development
 
