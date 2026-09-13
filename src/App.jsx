@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import StarNetwork from './StarNetwork.jsx'
 import {
   AnimatePresence,
   motion,
@@ -13,6 +14,7 @@ import {
   ArrowDownRight,
   ArrowLeft,
   ArrowRight,
+  ArrowUp,
   ArrowUpRight,
   Asterisk,
   Camera,
@@ -346,6 +348,12 @@ function App() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const scrollToTop = () => {
+    closeMenu()
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
+    appRef.current?.querySelector('.site-header .brand')?.focus({ preventScroll: true })
+  }
+
   const changeTestimonial = (direction) => {
     setTestimonial((current) => (current + direction + testimonials.length) % testimonials.length)
   }
@@ -359,6 +367,7 @@ function App() {
 
   return (
     <div className="app-shell" ref={appRef}>
+      <StarNetwork theme={theme} reduceMotion={reduceMotion} />
       <div className="pointer-glow" aria-hidden="true" />
       <div className="noise" aria-hidden="true" />
 
@@ -744,7 +753,20 @@ function App() {
           <a href="https://www.linkedin.com/in/dhirendra-kumar-28488b24b/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a>
           <a href="#contact">Enquire <ArrowUpRight /></a>
         </div>
-        <p className="footer-copy">© 2026 Dhirendra Kumar. Built with React.</p>
+        <p className="footer-copy">
+          © 2026 Dhirendra Kumar. Built with React.
+          <motion.button
+            className="back-to-top"
+            type="button"
+            onClick={scrollToTop}
+            aria-label="Back to top"
+            title="Back to top"
+            whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.94 }}
+          >
+            <ArrowUp size={22} aria-hidden="true" />
+          </motion.button>
+        </p>
       </footer>
     </div>
   )
