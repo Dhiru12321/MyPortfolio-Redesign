@@ -810,14 +810,13 @@ main {
 
 .about-visual {
   position: relative;
-  margin-right: -32px;
-  padding: 0;
+  padding: 0 0 32px;
 }
 
 .about-frame {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 0.68;
+  aspect-ratio: 0.82;
   border-radius: 48% 48% 18px 18px;
   background: var(--panel);
   box-shadow: var(--shadow);
@@ -832,22 +831,22 @@ main {
 }
 
 .about-portrait {
-  --triangle-top: 30%;
+  --triangle-top: 41%;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 92%;
-  height: 90%;
+  width: 66%;
+  aspect-ratio: 0.68;
   transform: translate(-50%, -50%);
-  /* A broad wedge leaves room for the entire cutout, including hands and trousers. */
-  clip-path: polygon(-65% 0, 165% 0, 165% var(--triangle-top), 50% 100%, -65% var(--triangle-top));
+  /* Let the head rise above a compact triangle; crop the torso along its edges. */
+  clip-path: polygon(0 0, 100% 0, 100% var(--triangle-top), 50% 100%, 0 var(--triangle-top));
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .about-portrait::before {
   content: '';
   position: absolute;
-  inset: var(--triangle-top) -65% 0;
+  inset: var(--triangle-top) 0 0;
   background: #4fc7d7;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
@@ -856,10 +855,9 @@ main {
   position: absolute;
   top: 0;
   left: 50%;
-  width: auto;
-  max-width: 100%;
-  height: 84%;
-  object-fit: contain;
+  width: 130%;
+  max-width: none;
+  height: auto;
   transform: translateX(-50%);
   filter: saturate(0.84) contrast(1.04);
   transition: filter 0.4s ease;
@@ -890,7 +888,7 @@ main {
 .about-tag {
   position: absolute;
   right: -24px;
-  bottom: 4%;
+  bottom: 6px;
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -2025,7 +2023,7 @@ footer p {
 
   .about-visual {
     width: 100%;
-    padding: 0;
+    padding: 0 0 32px;
   }
 
   .about-tag {
