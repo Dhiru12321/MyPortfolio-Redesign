@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import StarNetwork from './StarNetwork.jsx'
 import EnquiryScheduler from './EnquiryScheduler.jsx'
 import { LINKEDIN_URL } from './enquiry-calendar.js'
+import { publicAsset } from './public-asset.js'
 import {
   AnimatePresence,
   motion,
@@ -494,7 +495,7 @@ function App() {
               </MagneticLink>
               <MagneticLink
                 className="text-button"
-                href="/resume/dhirendra-kumar-resume.pdf"
+                href={publicAsset('/resume/dhirendra-kumar-resume.pdf')}
                 download
               >
                 Download Resume <ArrowUpRight size={17} />
@@ -536,7 +537,7 @@ function App() {
             <div className="portrait-backdrop" aria-hidden="true" />
             <img
               className="hero-portrait"
-              src="/assets/people/profile-primary.png"
+              src={publicAsset('/assets/people/profile-primary.png')}
               alt="Dhirendra Kumar"
             />
             <div className="hero-coordinate" aria-hidden="true">30.7333° N / 76.7794° E</div>
@@ -568,7 +569,7 @@ function App() {
             <div className="about-visual reveal-item">
               <div className="about-frame">
                 <div className="about-portrait">
-                  <img src="/assets/people/profile-about-cutout-v2.png" alt="Dhirendra Kumar looking to the right" />
+                  <img src={publicAsset('/assets/people/profile-about-cutout-v2.png')} alt="Dhirendra Kumar looking to the right" />
                 </div>
                 <span className="corner corner--tl" />
                 <span className="corner corner--tr" />
@@ -649,7 +650,7 @@ function App() {
                 ariaLabel={project.href ? `Visit ${project.title} website (opens in a new tab)` : undefined}
               >
                 <div className="project-image-wrap">
-                  <img src={project.image} alt={`${project.title} interface preview`} loading="lazy" />
+                  <img src={publicAsset(project.image)} alt={`${project.title} interface preview`} loading="lazy" />
                   <div className="project-color" style={{ '--project-accent': project.accent }} />
                   <motion.div className="project-view" whileHover={{ scale: 1.08 }}>
                     View <ArrowUpRight size={18} />
@@ -694,7 +695,7 @@ function App() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 16 }}
                 >
-                  <img src={testimonials[testimonial].image} alt="" />
+                  <img src={publicAsset(testimonials[testimonial].image)} alt="" />
                   <div>
                     <strong>{testimonials[testimonial].name}</strong>
                     <span>{testimonials[testimonial].role}</span>

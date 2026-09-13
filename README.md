@@ -17,6 +17,15 @@ npm run build
 
 Motion is powered by Motion for React and GSAP ScrollTrigger.
 
+## GitHub Pages
+
+The deployment workflow tests and builds the site whenever `main` is pushed,
+then publishes the `dist` artifact to GitHub Pages. `npm run build:pages` uses
+the `/MyPortfolio-Redesign/` base path; public photos and the resume use the same
+prefix. Local development stays at `/`.
+
+Expected website URL: https://dhiru12321.github.io/MyPortfolio-Redesign/
+
 ## Meeting enquiry flow
 
 The contact form's **Send enquiry** button opens a responsive date/time request

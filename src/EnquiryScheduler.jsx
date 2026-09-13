@@ -5,6 +5,7 @@ import {
   ChevronRight, Clock3, Copy, Download, Globe2, Mail, Sparkles, Video, X,
 } from 'lucide-react'
 import StarNetwork from './StarNetwork.jsx'
+import { publicAsset } from './public-asset.js'
 import {
   HOST_TIME_ZONE, LINKEDIN_URL, calendarMonth, contactEmailHref, createEnquiryText,
   dateKeyInZone, formatDateKey, formatTime, monthFromKey, proposalSlots,
@@ -145,7 +146,7 @@ export default function EnquiryScheduler({ details, theme, reduceMotion, onClose
 
         <div className="scheduler-card">
           <aside className="scheduler-overview">
-            <div className="scheduler-avatar"><img src="/assets/people/profile-about-cutout-v2.png" alt="Dhirendra Kumar" /></div>
+            <div className="scheduler-avatar"><img src={publicAsset('/assets/people/profile-about-cutout-v2.png')} alt="Dhirendra Kumar" /></div>
             <p className="scheduler-host">Dhirendra Kumar</p>
             <h2>30-minute <br />discovery call<span>.</span></h2>
             <p className="scheduler-about">Let’s explore your project, the possibilities, and what we could build together.</p>
